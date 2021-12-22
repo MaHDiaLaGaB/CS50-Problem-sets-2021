@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+
+        <script>
+
+            // TODO: Add code to check answers to questions
+            
+            document.addEventListener('DOMContentLoaded',function(){
+               
+                let correct_answer = document.querySelector('.yes');
+                correct_answer.addEventListener('click', function(){
+                    correct_answer.style.backgroundColor = 'green';
+                    document.querySelector('#prompt').innerHTML = 'Correct!';
+                });
+                
+                let wrong_answer = document.querySelectorAll('.no');
+                for (let i = 0 ; i < wrong_answer.length ; i++){
+                    wrong_answer[i].addEventListener('click', function(){
+                        wrong_answer[i].style.backgroundColor = 'red';
+                        document.querySelector('#prompt').innerHTML ='Wrong!'});
+                }
+                
+                document.querySelector('#check').addEventListener('click', function(){
+                let input = document.querySelector('input');
+                if (input.value === 'python'){
+                   input.style.backgroundColor = "green";
+                   document.querySelector('#prompt2').innerHTML = 'Correct!';
+                } else {
+                   input.style.backgroundColor = "red";
+                   document.querySelector('#prompt2').innerHTML = 'Wrong';
+                }
+                });
+            });
+            
+            
+        </script>
+
+    </head>
+    <body>
+
+        <div class="jumbotron">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                 <h3>
+                    Which of the following framework is maintained by meta (Facebook)?
+                </h3>
+                
+                <button class="yes">React</button>
+                <button class="no">Angular</button>
+                <button class="no">Vue</button>
+                <button class="no">Django</button>
+                
+                <p id="prompt"></p>
+                
+                <!-- TODO: Add multiple choice question here -->
+
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>Number one programming language?</h3>
+               <input id= "part2" type= "text">
+               <button id="check">Check Answer</button>
+               <p id="prompt2"></p>
+
+                <!-- TODO: Add free response question here -->
+
+            </div>
+
+        </div>
+    </body>
+</html>
